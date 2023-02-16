@@ -510,7 +510,7 @@ ss:Textbox("INF items id", true,function(txt)
 ss:Button("Give inf items",function()
 getgenv().id = (infall) -- Item ID
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/Pop-It-Trading-/main/Toy%20It%20Trading%20%E2%9C%A8"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Pop%20it%20and%20Toy%20It%20Trading/Pop%20it%20inf%20all"))()
 end)
 
 local ss = s:Tab("Auto Upgrade")
