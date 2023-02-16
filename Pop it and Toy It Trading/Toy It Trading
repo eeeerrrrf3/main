@@ -1,0 +1,1021 @@
+if game.PlaceId == 7503115095 then
+local upgradetimea
+local function GetToolFromCharacter()
+    for _, Tool in ipairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+        if Tool:IsA("Tool") then
+            return Tool
+        end
+    end
+end
+
+local AutoUpgrading = false
+local YourDadExists = false
+
+local function AutoUpgrade() -- Auto Upgrades The Tool Your Holding To The Jet
+    repeat task.wait(upgradetimea)
+        if GetToolFromCharacter() and AutoUpgrading and GetToolFromCharacter().Name ~= "10082" then
+            local Args = {
+                [1] = {
+                    [GetToolFromCharacter().Name] = 1
+                }
+            }
+
+            task.spawn(function()
+                game:GetService("ReplicatedStorage").Functions.Fuse.FuseRF:InvokeServer(unpack(Args))
+            end)
+        else
+            AutoUpgrade()
+        end
+    until
+    YourDadExists == true
+end
+task.spawn(AutoUpgrade)
+local faster
+local upgradetimes
+local function GetToolFromCharactere()
+    for _, Toole in ipairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
+        if Toole:IsA("Tool") then
+            return Toole
+        end
+    end
+end
+local AutoUpgradings = false
+local YourDadExistss = false
+
+local function AutoUpgrades() 
+    repeat task.wait(upgradetimes)
+        if GetToolFromCharacter() and AutoUpgradings and GetToolFromCharacter().Name ~= "10082" then
+            local Args = {
+                [1] = {
+                [GetToolFromCharactere().Name] = (faster)
+                }
+            }
+
+            task.spawn(function()
+                game:GetService("ReplicatedStorage").Functions.Fuse.FuseRF:InvokeServer(unpack(Args))
+            end)
+        else
+            AutoUpgrades()
+        end
+    until
+    YourDadExistss == true
+end
+task.spawn(AutoUpgrades)
+local AutoDropping = false
+local AutoDropping_Delay = 0
+local CurrentAutoDropping = nil
+
+task.spawn(function()
+    while task.wait() do
+        if GetToolFromCharacter() then
+            CurrentAutoDropping = GetToolFromCharacter().Name
+        end
+    end
+end)
+
+local function AutoDrop()
+    repeat task.wait(0.2)
+        if CurrentAutoDropping and AutoDropping then
+            local Args_1 = {
+                [1] = game:GetService("Players").LocalPlayer
+            }
+
+            game:GetService("ReplicatedStorage").Events.PickAndDrop.DropRE:FireServer(unpack(Args_1))
+
+            local Args_2 = {
+                [1] = CurrentAutoDropping
+            }
+
+            game:GetService("ReplicatedStorage").Events.PickAndDrop.TakeToolRE:FireServer(unpack(Args_2))
+            task.wait(AutoDropping_Delay)
+        else
+            AutoDrop()
+        end
+    until
+    YourDadExists == true
+end
+task.spawn(AutoDrop)
+
+local function NormalDupe() -- Dupes A Normal Item (Atleast 6 Of Them Required)
+    if GetToolFromCharacter() then
+        local Args = {
+            [1] = GetToolFromCharacter().Name,
+            [2] = 6,
+            [3] = "Normal"
+        }
+        task.spawn(function()
+            game:GetService("ReplicatedStorage").Functions.Upgrade.UpgradeRF:InvokeServer(unpack(Args))
+        end)
+    end
+end
+
+local function GoldenDupe() -- Dupes A Golden Item (Atleast 6 Of Them Required)
+    if GetToolFromCharacter() then
+        local Args = {
+            [1] = GetToolFromCharacter().Name,
+            [2] = 6,
+            [3] = "Golden"
+        }
+        task.spawn(function()
+            game:GetService("ReplicatedStorage").Functions.Upgrade.UpgradeRF:InvokeServer(unpack(Args))
+        end)
+    end
+end
+
+local function ColoredDupe() -- Dupes A Colored Item (Atleast 6 Of Them Required)
+    if GetToolFromCharacter() then
+        local Args = {
+            [1] = GetToolFromCharacter().Name,
+            [2] = 6,
+            [3] = "Colored"
+        }
+        task.spawn(function()
+            game:GetService("ReplicatedStorage").Functions.Upgrade.UpgradeRF:InvokeServer(unpack(Args))
+        end)
+    end
+end
+
+local AutoNormalDupee = false
+local AutoColoredDupee = false
+local coloredtime
+local normaltime
+local function AutoNormalDupe()
+    repeat task.wait(normaltime)
+        if GetToolFromCharacter() and AutoNormalDupee then
+            local Args = {
+                [1] = GetToolFromCharacter().Name,
+                [2] = 6,
+                [3] = "Normal"
+            }
+            task.spawn(function()
+                game:GetService("ReplicatedStorage").Functions.Upgrade.UpgradeRF:InvokeServer(unpack(Args))
+            end)
+        else
+            AutoNormalDupe()
+        end
+    until
+    YourDadExists == true
+end
+task.spawn(AutoNormalDupe)
+
+local function AutoColoredDupe()
+    repeat task.wait(coloredtime)
+        if GetToolFromCharacter() and AutoColoredDupee then
+            local Args = {
+                [1] = GetToolFromCharacter().Name,
+                [2] = 6,
+                [3] = "Colored"
+            }
+            task.spawn(function()
+                game:GetService("ReplicatedStorage").Functions.Upgrade.UpgradeRF:InvokeServer(unpack(Args))
+            end)
+        else
+            AutoColoredDupe()
+        end
+    until
+    YourDadExists == true
+end
+task.spawn(AutoColoredDupe)
+--UI library
+
+
+local VLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/vep1032/VepStuff/main/VL"))()
+local s    = VLib:Window("TopikHub", "Toy It Trading", "H+69")
+
+local ss = s:Tab("Main")
+ss:Slider("WalkSpeed",16,70,16,function(t)
+local Player                        = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid.WalkSpeed = (t) 
+end)
+ss:Slider("JumpPower",20,200,20,function(t)
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower = (t)
+end)
+ss:Button("Infinite Jump",function()
+    local Player = game:GetService'Players'.LocalPlayer;
+local UIS = game:GetService'UserInputService';
+
+_G.JumpHeight = 50;
+
+function Action(Object, Function) if Object ~= nil then Function(Object); end end
+
+UIS.InputBegan:connect(function(UserInput)
+if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.Space then
+Action(Player.Character.Humanoid, function(self)
+if self:GetState() == Enum.HumanoidStateType.Jumping or self:GetState() == Enum.HumanoidStateType.Freefall then
+Action(self.Parent.HumanoidRootPart, function(self)
+    self.Velocity = Vector3.new(0, _G.JumpHeight, 0);
+end)
+end
+end)
+end
+end)
+    end)
+ss:Button("Gigant Script" ,function()
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character
+local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+function rm()
+    for i,v in pairs(Character:GetDescendants()) do
+        if v:IsA("BasePart") then
+            if v.Name == "Handle" or v.Name == "Head" then
+                if Character.Head:FindFirstChild("OriginalSize") then
+                    Character.Head.OriginalSize:Destroy()
+                end
+            else
+                for i,cav in pairs(v:GetDescendants()) do
+                    if cav:IsA("Attachment") then
+                        if cav:FindFirstChild("OriginalPosition") then
+                            cav.OriginalPosition:Destroy()  
+                        end
+                    end
+                end
+                v:FindFirstChild("OriginalSize"):Destroy()
+                if v:FindFirstChild("AvatarPartScaleType") then
+                    v:FindFirstChild("AvatarPartScaleType"):Destroy()
+                end
+            end
+        end
+    end
+end
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyProportionScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyHeightScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyWidthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyDepthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("HeadScale"):Destroy()
+wait(1)
+end)
+
+ss:Button("Reset Humanoid", function()
+    game.Players.LocalPlayer.Character.Humanoid.Health = 0
+end)
+
+ss:Button("Fly Script",function()
+loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+end)
+ss:Button("Make player invisible F key",function()
+                    
+        local ScriptStarted = false
+        local Keybind = "F" --Set to whatever you want, has to be the name of a KeyCode Enum.
+        local Transparency = true --Will make you slightly transparent when you are invisible. No reason to disable.
+        local NoClip = false --Will make your fake character no clip.
+        
+        local Player = game:GetService("Players").LocalPlayer
+        local RealCharacter = Player.Character or Player.CharacterAdded:Wait()
+        
+        local IsInvisible = false
+        
+        RealCharacter.Archivable = true
+        local FakeCharacter = RealCharacter:Clone()
+        local Part
+        Part = Instance.new("Part", workspace)
+        Part.Anchored = true
+        Part.Size = Vector3.new(200, 1, 200)
+        Part.CFrame = CFrame.new(0, -500, 0) --Set this to whatever you want, just far away from the map.
+        Part.CanCollide = true
+        FakeCharacter.Parent = workspace
+        FakeCharacter.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
+        
+        for i, v in pairs(RealCharacter:GetChildren()) do
+          if v:IsA("LocalScript") then
+              local clone = v:Clone()
+              clone.Disabled = true
+              clone.Parent = FakeCharacter
+          end
+        end
+        if Transparency then
+          for i, v in pairs(FakeCharacter:GetDescendants()) do
+              if v:IsA("BasePart") then
+                  v.Transparency = 0.7
+              end
+          end
+        end
+        local CanInvis = true
+        function RealCharacterDied()
+          CanInvis = false
+          RealCharacter:Destroy()
+          RealCharacter = Player.Character
+          CanInvis = true
+          isinvisible = false
+          FakeCharacter:Destroy()
+          workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
+        
+          RealCharacter.Archivable = true
+          FakeCharacter = RealCharacter:Clone()
+          Part:Destroy()
+          Part = Instance.new("Part", workspace)
+          Part.Anchored = true
+          Part.Size = Vector3.new(200, 1, 200)
+          Part.CFrame = CFrame.new(9999, 9999, 9999) --Set this to whatever you want, just far away from the map.
+          Part.CanCollide = true
+          FakeCharacter.Parent = workspace
+          FakeCharacter.HumanoidRootPart.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
+        
+          for i, v in pairs(RealCharacter:GetChildren()) do
+              if v:IsA("LocalScript") then
+                  local clone = v:Clone()
+                  clone.Disabled = true
+                  clone.Parent = FakeCharacter
+              end
+          end
+          if Transparency then
+              for i, v in pairs(FakeCharacter:GetDescendants()) do
+                  if v:IsA("BasePart") then
+                      v.Transparency = 0.7
+                  end
+              end
+          end
+         RealCharacter.Humanoid.Died:Connect(function()
+         RealCharacter:Destroy()
+         FakeCharacter:Destroy()
+         end)
+         Player.CharacterAppearanceLoaded:Connect(RealCharacterDied)
+        end
+        RealCharacter.Humanoid.Died:Connect(function()
+         RealCharacter:Destroy()
+         FakeCharacter:Destroy()
+         end)
+        Player.CharacterAppearanceLoaded:Connect(RealCharacterDied)
+        local PseudoAnchor
+        game:GetService "RunService".RenderStepped:Connect(
+          function()
+              if PseudoAnchor ~= nil then
+                  PseudoAnchor.CFrame = Part.CFrame * CFrame.new(0, 5, 0)
+              end
+               if NoClip then
+              FakeCharacter.Humanoid:ChangeState(11)
+               end
+          end
+        )
+        
+        PseudoAnchor = FakeCharacter.HumanoidRootPart
+        local function Invisible()
+          if IsInvisible == false then
+              local StoredCF = RealCharacter.HumanoidRootPart.CFrame
+              RealCharacter.HumanoidRootPart.CFrame = FakeCharacter.HumanoidRootPart.CFrame
+              FakeCharacter.HumanoidRootPart.CFrame = StoredCF
+              RealCharacter.Humanoid:UnequipTools()
+              Player.Character = FakeCharacter
+              workspace.CurrentCamera.CameraSubject = FakeCharacter.Humanoid
+              PseudoAnchor = RealCharacter.HumanoidRootPart
+              for i, v in pairs(FakeCharacter:GetChildren()) do
+                  if v:IsA("LocalScript") then
+                      v.Disabled = false
+                  end
+              end
+        
+              IsInvisible = true
+          else
+              local StoredCF = FakeCharacter.HumanoidRootPart.CFrame
+              FakeCharacter.HumanoidRootPart.CFrame = RealCharacter.HumanoidRootPart.CFrame
+             
+              RealCharacter.HumanoidRootPart.CFrame = StoredCF
+             
+              FakeCharacter.Humanoid:UnequipTools()
+              Player.Character = RealCharacter
+              workspace.CurrentCamera.CameraSubject = RealCharacter.Humanoid
+              PseudoAnchor = FakeCharacter.HumanoidRootPart
+              for i, v in pairs(FakeCharacter:GetChildren()) do
+                  if v:IsA("LocalScript") then
+                      v.Disabled = true
+                  end
+              end
+              IsInvisible = false
+          end
+        end
+        
+        game:GetService("UserInputService").InputBegan:Connect(
+          function(key, gamep)
+              if gamep then
+                  return
+              end
+              if key.KeyCode.Name:lower() == Keybind:lower() and CanInvis and RealCharacter and FakeCharacter then
+                  if RealCharacter:FindFirstChild("HumanoidRootPart") and FakeCharacter:FindFirstChild("HumanoidRootPart") then
+                      Invisible()
+                  end
+              end
+          end
+        )
+        local Sound = Instance.new("Sound",game:GetService("SoundService"))
+        Sound.SoundId = "rbxassetid://232127604"
+        Sound:Play()
+        game:GetService("StarterGui"):SetCore("SendNotification",{["Title"] = "Invisible Toggle Loaded",["Text"] = "Press "..Keybind.." to become change visibility.",["Duration"] = 20,["Button1"] = "Okay."})
+            end)       
+ss:Button("Left ctrl + click to tp",function()
+    loadstring(game:HttpGet("https://cdn.wearedevs.net/scripts/Click%20Teleport.txt"))()
+    end)
+ss:Button("Fling Peoples Items",function()
+            power = 500 -- change this to make it more or less powerful
+
+game:GetService('RunService').Stepped:connect(function()
+game.Players.LocalPlayer.Character.Head.CanCollide = false
+game.Players.LocalPlayer.Character.UpperTorso.CanCollide = false
+game.Players.LocalPlayer.Character.LowerTorso.CanCollide = false
+game.Players.LocalPlayer.Character.HumanoidRootPart.CanCollide = false
+end)
+wait(.1)
+local bambam = Instance.new("BodyThrust")
+bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+bambam.Force = Vector3.new(power,0,power)
+bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+wait(0)
+power = 500 -- change this to make it more or less powerful
+
+game:GetService('RunService').Stepped:connect(function()
+game.Players.LocalPlayer.Character.Head.CanCollide = false
+game.Players.LocalPlayer.Character.Torso.CanCollide = false
+game.Players.LocalPlayer.Character["Left Leg"].CanCollide = false
+game.Players.LocalPlayer.Character["Right Leg"].CanCollide = false
+end)
+
+wait(.1)
+local bambam = Instance.new("BodyThrust")
+bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+bambam.Force = Vector3.new(power,0,power)
+bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            end)
+ss:Textbox("Put Name here to tp to", true,function(txt)
+        Tp=(txt)
+        end)
+ss:Toggle("Loop the Tp",function(state)
+          if state then
+          _G.Loop = true 
+          while _G.Loop == true do
+          wait(0)
+          targetUsername = Tp
+        players = game:GetService("Players")
+        targetPlayer = players:FindFirstChild(targetUsername)
+        players.LocalPlayer.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
+        
+          end
+                   else
+          
+          _G.Loop = false
+          
+                  end
+          end)
+          
+ss:Button("Tp To The Player",function()
+          targetUsername = Tp
+      players = game:GetService("Players")
+      targetPlayer = players:FindFirstChild(targetUsername)
+      players.LocalPlayer.Character:MoveTo(targetPlayer.Character.HumanoidRootPart.Position)
+      
+      end)
+
+ss:Button("Rejoin Server",function()
+game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+local ss = s:Tab("Auto Dropper")
+ss:Label("|Auto Drops Item That You Are Holding|")
+ss:Textbox("Wait Time For Dropping Items", true,function(d)
+    AutoDropping_Delay = d
+    end)
+ss:Toggle("Auto Drop Items",function(state)
+    AutoDropping = state
+    end)
+
+ss:Button("Facke drop Jat", function()
+getgenv().HowMuchTimesToDrop = 20
+loadstring(game:HttpGet("https://raw.githubusercontent.com/kodescripts/scripts/main/FakeDropJet.lua"))()
+end)
+
+ss:Label("|Inf jat but your acc will go into negative|")
+
+ss:Textbox("INF items id", true,function(txt)
+    infall = (txt)
+    end)
+
+ss:Button("Give inf items",function()
+getgenv().id = (infall) -- Item ID
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/Pop-It-Trading-/main/Toy%20It%20Trading%20%E2%9C%A8"))()
+end)
+
+local ss = s:Tab("Auto Upgrade")
+ss:Label("|Auto Upgrade Stuff For Free|")
+
+ss:Textbox("Wait Time For Upgrade", true,function(txt)
+    upgradetimea = (txt)
+    end)
+
+ss:Toggle("Auto upgrade Items",function(state)
+    AutoUpgrading = state
+    end)
+ss:Label("|Auto Upgrade but Its Weird|")
+ss:Textbox("Wait Time For Broken Upgrade", true,function(txt)
+    upgradetimes = (txt)
+    end)
+ss:Dropdown("Broken Upgarde Lower The Number The More Boken",{0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1, 0},function(t)
+faster = (t)
+end)
+ss:Toggle("Broken Auto Upgrade Items OP",function(state)
+AutoUpgradings = state 
+end)
+
+
+local ss = s:Tab("Dupes")
+ss:Label("|Dupe For Non Gold Or Rainbow Items(patched)|")
+ss:Button("Manual Dupe (Need 6 Of The Item)" ,function()
+    NormalDupe()
+end)
+ss:Textbox("Edit Wait Time", true,function(txt)
+    normaltime = (txt)
+    end)
+ss:Toggle("Auto Dupe",function(state)
+    AutoNormalDupee = state
+end)
+ss:Label("|Dupe For Gold Items Only|")
+ss:Button("Manual Dupe (Need 6 Of The Item)" ,function()
+    
+end)
+ss:Textbox("Edit Wait Time", true,function(txt)
+
+    end)
+ss:Toggle("Auto Dupe",function(state)
+     
+end)
+ss:Label("|Dupe For Rainbow Items|")
+ss:Button("Manual Dupe (Need 6 Of The Item)" ,function()
+    ColoredDupe()
+end)
+ss:Textbox("Edit Wait Time", true,function(txt)
+    coloredtime = (txt)
+    end)
+ss:Toggle("Auto Dupe",function(state)
+     AutoColoredDupee = state
+end)
+local ss = s:Tab("buy out of game items")
+ss:Label("click any out of game item you want to buy")
+ss:Label("you need the money to buy it")
+ss:Button("Buy halloween pumpkin",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10140,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("buy snow man",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10189,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Buy candy",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10131,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("trick or treat bucket",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10132,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("buy diffrent snowman",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10188,
+    [3] = 1
+}
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Gingerbread Man",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10191,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Buy turkey",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10164,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Buy rudolf",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10181,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Easter Dominus",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10231,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("fire pumpkin",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10130,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Cursed Pumpkin",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10129,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Glithed Minecraft Dirt",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10251,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Football Super Car",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10248,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Label("|All Rainbow items|")
+
+ss:Button("Personal Jet Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Glithed Minecraft Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40251,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Yellow Among Us Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40206,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Pizza Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40001,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button(" Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button(" Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)ss:Button(" Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+local ss = s:Tab("buy out of game items x100")
+ss:Label("click any out of game item you want to buy x 100")
+ss:Label("you need the money to buy it x100")
+ss:Button("Buy halloween pumpkin x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10140,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("buy snow man x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10189,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Buy candy x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10131,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("trick or treat bucket x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10132,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("buy diffrent snowman x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10188,
+    [3] = 100
+}
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Gingerbread Man x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10191,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Buy turkey x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10164,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Buy rudolf x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10181,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Easter Dominus x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10231,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("fire pumpkin x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10130,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Cursed Pumpkin x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10129,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Glithed Minecraft Dirt x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10251,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Football Super Car x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 10248,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Label("|All Rainbow items|")
+
+ss:Button("Personal Jet Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Glithed Minecraft Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40251,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Yellow Among Us Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40206,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Pizza Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40001,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button(" Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button(" Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)ss:Button(" Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40082,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+
+local ss = s:Tab("Credits")
+ss:Label("Credits To Topik#4001 For Whitelist System")
+ss:Label("Credits To Topik#4001 For UI")
+ss:Label("Credits To Both TopikHub For Features")
+ss:Label("Credits To TopikHub For Dupes")
+ss:Label("Make Sure You Are In The Discord")
+ss:Label("https://discord.gg/mfAjWaz2j9")
+end
