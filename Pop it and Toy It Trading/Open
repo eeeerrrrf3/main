@@ -1,0 +1,16 @@
+--//Variables
+local games = {
+	[7503115095] = "https://raw.githubusercontent.com/eeeerrrrf3/main/main/Pop%20it%20and%20Toy%20It%20Trading/Toy%20It%20Trading2",
+	[7313915417] = ""
+	
+}
+--//Main Code
+if _G.shdscripts ~= nil then
+  error("Already executed!")
+end
+_G.shdscripts = true
+if games[game.PlaceId] ~= nil then
+	loadstring(game:HttpGet(games[game.PlaceId]))()
+else
+	error("[Topik-Hub]Unsupported game!")
+end
