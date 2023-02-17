@@ -462,7 +462,7 @@
                                
                               ]]--
 
-if game.PlaceId == 7503115095 then
+if game.PlaceId = 7503115095 then
 local upgradetimea
 local function GetToolFromCharacter()
     for _, Tool in ipairs(game:GetService("Players").LocalPlayer.Character:GetChildren()) do
