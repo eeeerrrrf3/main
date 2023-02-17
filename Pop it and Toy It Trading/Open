@@ -1,6 +1,6 @@
 --//Variables
 local games = {
-	[7503115095] = "https://raw.githubusercontent.com/eeeerrrrf3/main/main/Pop%20it%20and%20Toy%20It%20Trading/Toy%20It%20Trading2",
+	[7503115095] = "https://raw.githubusercontent.com/eeeerrrrf3/main/main/Pop%20it%20and%20Toy%20It%20Trading/Toy%20It%20Trading",
 	[7313915417] = ""
 	
 }
