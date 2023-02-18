@@ -1,0 +1,15 @@
+--//Variables
+local games = {
+	[4490140733] = "https://raw.githubusercontent.com/eeeerrrrf3/main/main/My%20Restaurant/My%20Restaurant"
+	
+}
+--//Main Code
+if _G.shdscripts ~= nil then
+  error("Already executed!")
+end
+_G.shdscripts = true
+if games[game.PlaceId] ~= nil then
+	loadstring(game:HttpGet(games[game.PlaceId]))()
+else
+	error("[SHIELD-HUB] Unsupported game!")
+end
