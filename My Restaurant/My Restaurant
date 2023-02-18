@@ -1,0 +1,175 @@
+local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
+
+local PhantomForcesWindow = Library:NewWindow("TopikHub | My Restauran")
+
+local KillingCheats = PhantomForcesWindow:NewSection("Money and XP")
+
+KillingCheats:CreateButton("Auto Farm", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Enable Auto Farm",
+Text = "Topik-Hub",
+
+Duration = 5
+}) 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/itzRolf/Collection/main/My%20Restaurant/source.lua",true))()
+end)
+
+KillingCheats:CreateButton("XP Farm", function()
+while wait(0.2) do
+local A_1 =
+{
+[1] =
+{
+[1] = false
+},
+[2] =
+{
+[1] = 2
+}
+}
+local Event = game:GetService("Workspace")["__THINGS"]["__REMOTES"].awardbakeryexperiencewithverification
+Event:FireServer(A_1)
+end
+end)
+
+local KillingCheats = PhantomForcesWindow:NewSection("Teleports")
+
+KillingCheats:CreateButton("Shop", function(name)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-400.8079528808594, 229.21495056152344, 1053.424072265625) 
+end)
+
+KillingCheats:CreateButton("Shop(1)", function(name)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-345.60931396484375, 253.4043731689453, 1091.3572998046875)
+end)
+
+KillingCheats:CreateButton("Shop(2)", function(name)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-442.4434814453125, 253.40440368652344, 1086.556640625) 
+end)
+
+KillingCheats:CreateButton("Event Shop", function(name)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-400.4703369140625, 228.79031372070312, 798.1076049804688) 
+end)
+
+local KillingCheats = PhantomForcesWindow:NewSection("Player")
+
+KillingCheats:CreateDropdown("Speed", {"16", "30", "50", "70", "100"}, 2, function(speed)
+while true do
+wait()
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = speed
+end
+end)
+
+KillingCheats:CreateButton("Infinite Jump", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Infinite jump has been executed lol",
+Text = "Enable", 
+
+Duration = 5
+})
+-- Created By Zorkel
+
+-- Instances:
+
+local DropGUI = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local DropTool = Instance.new("TextButton")
+
+--Properties:
+
+DropGUI.Name = "Drop GUI"
+DropGUI.Parent = game.CoreGui
+DropGUI.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = DropGUI
+main.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+main.Position = UDim2.new(0.0809101239, 0, 0.203790441, 0)
+main.Size = UDim2.new(0, 100, 0, 100)
+main.Active = true
+main.Draggable = true
+
+DropTool.Name = "Drop Tool"
+DropTool.Parent = main
+DropTool.BackgroundColor3 = Color3.fromRGB(350, 0, 0)
+DropTool.Position = UDim2.new(0.0597826242, 0, 0.119906127, 0)
+DropTool.Size = UDim2.new(0, 80, 0, 80)
+DropTool.Font = Enum.Font.SourceSans
+DropTool.Text = "^"
+DropTool.TextColor3 = Color3.fromRGB(0, 0, 0)
+DropTool.TextScaled = true
+DropTool.TextSize = 14.000
+DropTool.TextWrapped = true
+DropTool.MouseButton1Down:Connect(function()
+local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+		game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+
+
+game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+end)
+end)
+
+local KillingCheats = PhantomForcesWindow:NewSection("Misc")
+
+KillingCheats:CreateButton("Fps booster", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Low quality has been executed lol",
+Text = "Epic", 
+
+Duration = 5
+})
+local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
+local g = game
+local w = g.Workspace
+local l = g.Lighting
+local t = w.Terrain
+t.WaterWaveSize = 0
+t.WaterWaveSpeed = 0
+t.WaterReflectance = 0
+t.WaterTransparency = 0
+l.GlobalShadows = false
+l.FogEnd = 9e9
+l.Brightness = 0
+settings().Rendering.QualityLevel = "Level01"
+for i, v in pairs(g:GetDescendants()) do
+    if v:IsA("Part") or v:IsA("Union") or v:IsA("CornerWedgePart") or v:IsA("TrussPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+    elseif v:IsA("Decal") or v:IsA("Texture") and decalsyeeted then
+        v.Transparency = 1
+    elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then
+        v.Lifetime = NumberRange.new(0)
+    elseif v:IsA("Explosion") then
+        v.BlastPressure = 1
+        v.BlastRadius = 1
+    elseif v:IsA("Fire") or v:IsA("SpotLight") or v:IsA("Smoke") then
+        v.Enabled = false
+    elseif v:IsA("MeshPart") then
+        v.Material = "Plastic"
+        v.Reflectance = 0
+        v.TextureID = 10385902758728957
+    end
+end
+for i, e in pairs(l:GetChildren()) do
+    if e:IsA("BlurEffect") or e:IsA("SunRaysEffect") or e:IsA("ColorCorrectionEffect") or e:IsA("BloomEffect") or e:IsA("DepthOfFieldEffect") then
+        e.Enabled = false
+    end
+end
+end)
+
+KillingCheats:CreateButton("Rejoin Server", function()
+game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+end)
+
+KillingCheats:CreateButton("Copy discord invite", function()
+game:GetService("StarterGui"):SetCore("SendNotification",{
+Title = "Discord Copied to your clipboard",
+Text = "Epic", 
+
+Duration = 5
+})
+setclipboard("https://discord.gg/mfAjWaz2j9")
+end)
