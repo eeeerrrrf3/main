@@ -998,7 +998,6 @@ ss:Toggle("Broken Auto Upgrade Items OP",function(state)
 AutoUpgradings = state 
 end)
 
-
 local ss = s:Tab("Dupes")
 ss:Label("|Dupe For Non Gold Or Rainbow Items(patched)|")
 ss:Button("Manual Dupe (Need 6 Of The Item)" ,function()
@@ -1188,10 +1187,10 @@ game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(
     print("Pressed!") 
 end)
 
-ss:Button("Glithed Minecraft Rainbow",function()
+ss:Button("Bike Rainbow",function()
 local args = {
     [1] = "purchase",
-    [2] = 40251,
+    [2] = 40005,
     [3] = 1
 }
 
@@ -1221,10 +1220,174 @@ game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(
     print("Pressed!") 
 end)
 
-ss:Button(" Rainbow",function()
+ss:Button("BoomBox Rainbow",function()
 local args = {
     [1] = "purchase",
-    [2] = 40082,
+    [2] = 40007,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("BurstJetpack Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40008,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+ss:Button("CandyBar Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40009,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Cheezburger Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40011,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Pinata Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40013,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("ColorSword Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40015,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("CuddlyCat Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40016,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("DiscoHyperbike Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40018,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("DonutDeliveryVehicl Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40021,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Drink Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40023,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Duck Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40024,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("FireSaw Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40026,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("FusionCoil Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40029,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("SteamTrain Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40030,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Glider Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40032,
+    [3] = 1
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("IceCreamCone Rainbow",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40077,
     [3] = 1
 }
 
@@ -1241,163 +1404,13 @@ local args = {
 
 game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
     print("Pressed!") 
-end)ss:Button(" Rainbow",function()
-local args = {
-    [1] = "purchase",
-    [2] = 40082,
-    [3] = 1
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
 end)
+
 
 local ss = s:Tab("buy out of game items x100")
 ss:Label("click any out of game item you want to buy x 100")
 ss:Label("you need the money to buy it x100")
 ss:Button("Buy halloween pumpkin x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10140,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("buy snow man x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10189,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Buy candy x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10131,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("trick or treat bucket x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10132,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("buy diffrent snowman x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10188,
-    [3] = 100
-}
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Gingerbread Man x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10191,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Buy turkey x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10164,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Buy rudolf x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10181,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Easter Dominus x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10231,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("fire pumpkin x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10130,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Cursed Pumpkin x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10129,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Glithed Minecraft Dirt x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10251,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Button("Football Super Car x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 10248,
-    [3] = 100
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)
-
-ss:Label("|All Rainbow items|")
 
 ss:Button("Personal Jet Rainbow x100",function()
 local args = {
@@ -1410,10 +1423,10 @@ game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(
     print("Pressed!") 
 end)
 
-ss:Button("Glithed Minecraft Rainbow x100",function()
+ss:Button("Bike Rainbow x100",function()
 local args = {
     [1] = "purchase",
-    [2] = 40251,
+    [2] = 40005,
     [3] = 100
 }
 
@@ -1443,11 +1456,175 @@ game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(
     print("Pressed!") 
 end)
 
-ss:Button(" Rainbow",function()
+ss:Button("BoomBox Rainbow x100",function()
 local args = {
     [1] = "purchase",
-    [2] = 40082,
-    [3] = 1
+    [2] = 40007,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("BurstJetpack Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40008,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+ss:Button("CandyBar Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40009,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Cheezburger Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40011,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Pinata Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40013,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("ColorSword Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40015,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("CuddlyCat Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40016,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("DiscoHyperbike Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40018,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("DonutDeliveryVehicl Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40021,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Drink Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40023,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Duck Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40024,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("FireSaw Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40026,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("FusionCoil Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40029,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("SteamTrain Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40030,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("Glider Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40032,
+    [3] = 100
+}
+
+game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
+    print("Pressed!") 
+end)
+
+ss:Button("IceCreamCone Rainbow x100",function()
+local args = {
+    [1] = "purchase",
+    [2] = 40077,
+    [3] = 100
 }
 
 game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
@@ -1458,16 +1635,7 @@ ss:Button(" Rainbow",function()
 local args = {
     [1] = "purchase",
     [2] = 40082,
-    [3] = 1
-}
-
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!") 
-end)ss:Button(" Rainbow",function()
-local args = {
-    [1] = "purchase",
-    [2] = 40082,
-    [3] = 1
+    [3] = 100
 }
 
 game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
@@ -1479,7 +1647,7 @@ local ss = s:Tab("Credits")
 ss:Label("Credits To Topik#4001 For Whitelist System")
 ss:Label("Credits To Topik#4001 For UI")
 ss:Label("Credits To Both TopikHub For Features")
-ss:Label("Credits To PLATINA For INF")
+ss:Label("Credits To PLATINA For INF JET")
 ss:Label("Make Sure You Are In The Discord")
 ss:Label("https://discord.gg/mfAjWaz2j9")
 end
