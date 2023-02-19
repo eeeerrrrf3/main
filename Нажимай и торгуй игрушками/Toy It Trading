@@ -1641,11 +1641,12 @@ game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(
     print("Pressed!") 
 end)
 
+
 local ss = s:Tab("Credits")
 ss:Label("Credits To Topik#4001 For Whitelist System")
 ss:Label("Credits To Topik#4001 For UI")
 ss:Label("Credits To Both TopikHub For Features")
-ss:Label("Credits To PLATINA For INF JET")
+ss:Label("Credits To PLATINA For INF")
 ss:Label("Make Sure You Are In The Discord")
 ss:Label("https://discord.gg/mfAjWaz2j9")
 end
