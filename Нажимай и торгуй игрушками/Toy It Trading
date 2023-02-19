@@ -1406,18 +1406,11 @@ game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(
     print("Pressed!") 
 end)
 
+
 local ss = s:Tab("buy out of game items x100")
 ss:Label("click any out of game item you want to buy x 100")
 ss:Label("you need the money to buy it x100")
-ss:Button("Evil Hauntikar Pumkin Rainbow x100",function()
-local args = {
-    [1] = "purchase",
-    [2] = 40247,
-    [3] = 100
-}
 
-game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
-    print("Pressed!")
 ss:Button("Personal Jet Rainbow x100",function()
 local args = {
     [1] = "purchase",
@@ -1647,7 +1640,6 @@ local args = {
 game:GetService("ReplicatedStorage").Events.Coin.CoinMarketRE:FireServer(unpack(args))
     print("Pressed!") 
 end)
-
 
 local ss = s:Tab("Credits")
 ss:Label("Credits To Topik#4001 For Whitelist System")
