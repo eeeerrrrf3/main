@@ -1,4 +1,4 @@
---Made by N3xul
+--Made by TopikHub
 local runDummyScript = function(f,scri)
 local oldenv = getfenv(f)
 local newenv = setmetatable({}, {
