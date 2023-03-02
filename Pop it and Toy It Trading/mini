@@ -5,7 +5,9 @@ local Window = Library.CreateLib("Topikhub (Owner Topik)", "RJTheme3")
 local Tab = Window:NewTab("Buy Items")	
 
 local Section = Tab:NewSection("TOP script")
-
+ 
+ 
+ 
 Section:NewButton("Give inf jat rb", "lol", function()
 getgenv().id = 40082 -- Item ID
 
@@ -220,8 +222,8 @@ end
 end)
 end)
 
-Section:NewButton("Trade Value", "ButtonInfo", function()
-    game.Players.localPlayer.XRay.Value = true
+Section:NewButton("KEY BOARD", "ButtonInfo", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/advxzivhsjjdhxhsidifvsh/mobkeyboard/main/main.txt", true))()
 end)
 
 Section:NewButton("Giant", "makes you giant (R15)", function()
