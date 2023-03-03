@@ -6,12 +6,7 @@ local Tab = Window:NewTab("Buy Items")
 
 local Section = Tab:NewSection("TOP script")
  
-Section:NewKeybind("ToggleGui", "Set you toggle gui key", Enum.KeyCode.F, function()
-getgenv().id = 40082 -- Item ID
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
-end)
-Section:NewButton("Give inf jat rb", "lol", function()
+Section:NewKeybind("Give inf jat rb", "Set you toggle gui key", Enum.KeyCode.F, function()
 getgenv().id = 40082 -- Item ID
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/DontForgontPassword/Script/main/Script.lua"))()
