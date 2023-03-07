@@ -1,0 +1,266 @@
+--Getting the player, character and mouse
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+local Mouse = plr:GetMouse()
+local mtarget
+--Making the tool
+local gun = Instance.new("Tool",plr.Backpack)
+gun.Name = "Gan Garismod"
+gun.GripPos = Vector3.new(0, -1.315, -0.253)
+gun.GripUp = Vector3.new(0, -0, 1)
+local handle = Instance.new("Part",gun)
+handle.Name = "Handle"
+handle.Size = Vector3.new(0.3, 4.9, 0.8)
+local mesh = Instance.new("SpecialMesh",handle)
+mesh.MeshId = "http://www.roblox.com/asset/?id=42583419"
+mesh.MeshType = "FileMesh"
+mesh.Scale = Vector3.new(1.5, 1.5, 1.5)
+mesh.TextureId = "http://www.roblox.com/asset/?id=42584198"
+local bullet = Instance.new("Model",gun)
+bullet.Name = "bullet"
+local p1 = Instance.new("Part",bullet)
+p1.Shape = "Ball"
+p1.Name = "p1"
+p1.Size = Vector3.new(0.9, 0.9, 0.9)
+p1.Material = "Neon"
+p1.BrickColor = BrickColor.new("Really blue")
+p1.Transparency = 1
+p1.CanCollide = false
+p1.BottomSurface = "Smooth"
+p1.TopSurface = "Smooth"
+local p2 = Instance.new("Part",bullet)
+p2.Shape = "Ball"
+p2.Name = "p2"
+p2.Size = Vector3.new(1, 1, 1)
+p2.Material = "Plastic"
+p2.BrickColor = BrickColor.new("Institutional white")
+p2.Transparency = 1
+p2.CanCollide = false
+p2.BottomSurface = "Smooth"
+p2.TopSurface = "Smooth"
+local shoot = Instance.new("Sound",handle)
+shoot.SoundId = "rbxassetid://2344851316"
+shoot.Volume = 1
+local canshoot = false
+--Making the welds
+local w1 = Instance.new("Weld",p1)
+w1.Part0 = p1
+w1.Part1 = handle
+w1.C0 = CFrame.new(0, 0, 0, 1, 1.19208686e-07, -2.72848411e-12, 1.19208686e-07, 1, 1.15107923e-12, -2.72848411e-12, 1.15107923e-12, 1)
+w1.C1 = CFrame.new(-0.0999778807, 3.69987226, 0.299981654, 1, 1.19208686e-07, -2.72848411e-12, 1.19208686e-07, 1, 1.15107923e-12, -2.72848411e-12, 1.15107923e-12, 1)
+w1.Name = "hWeld"
+local w2 = Instance.new("Weld",p1)
+w2.Part0 = p1
+w2.Part1 = p2
+w2.C0 = CFrame.new(0.299996376, -5.29999924, 1.5, 0.999998569, 5.96042923e-07, -1.36423997e-11, 5.96043094e-07, 1, 5.75538922e-12, -1.36423997e-11, 5.75538749e-12, 0.999998569)
+w2.C1 = CFrame.new(0.300022125, -5.30012798, 1.49998176, 1, 1.19208686e-07, -2.72848411e-12, 1.19208686e-07, 1, 1.15107923e-12, -2.72848411e-12, 1.15107923e-12, 1)
+--Functions
+gun.Equipped:connect(function()
+	local weld = Instance.new("Weld",char)
+	weld.Name = "Weld"
+	weld.Part0 = char.Torso
+	weld.Part1 = char["Left Arm"]
+	weld.C1 = CFrame.new(0.199999988, 0.699999988, 0, 0.642787516, 7.6651645e-09, -0.766044438, 0.766044438, 9.13498788e-09, 0.642787516, 1.19248806e-08, -0.99999994, -5.21253064e-16)
+	weld.C0 = CFrame.new(-1, 0.5, 0, -4.37113883e-08, 0, -1, 0, 0.99999994, 0, 1, 0, -4.37113883e-08)
+	local weld2 = Instance.new("Weld",char)
+	weld2.Part0 = char.Torso
+	weld2.Part1 = char["Right Arm"]
+	weld2.C1 =  CFrame.new(0, 0.49999997, 0, -4.37113847e-08, 0, 0.99999994, -1, -4.37113847e-08, -4.37113883e-08, 4.37113883e-08, -0.99999994, 1.91068547e-15)
+	weld2.C0 = CFrame.new(1, 0.5, 0, -4.37113883e-08, 0, 1, -0, 0.99999994, 0, -1, 0, -4.37113883e-08)
+	weld2.Name = "Weld2"
+	canshoot = true
+end)
+
+gun.Unequipped:connect(function()
+	char.Weld:Destroy()
+	char.Weld2:Destroy()
+	canshoot = false
+end)
+
+
+    function clickObj()
+if canshoot == true then
+	mtarget = Mouse.Target
+	if mtarget then
+		shoot:Play()
+	local bulc = bullet:Clone()
+	bulc.Parent = game.Workspace
+	bulc.p1.Transparency = 0.5
+	bulc.p2.Transparency = 0.5
+	bulc.p1.hWeld:Destroy()
+	bulc.p2.CanCollide = true
+	local bv = Instance.new("BodyVelocity")
+bv.Parent = bulc.p2
+bv.velocity = ((char.Humanoid.TargetPoint - bulc.p2.Position).unit) * 50
+
+function onTouched(brick)
+	local humn = brick.Parent:FindFirstChildOfClass("Humanoid")
+	if humn then
+		if humn.Parent ~= char then
+			if humn.Name ~= "killed" then
+			local par = humn.Parent
+
+	for i,v in pairs(par:GetChildren()) do
+		if v.ClassName == "Script" or v.ClassName == "LocalScript" or v.ClassName == "ModuleScript" or v.ClassName == "CharacterMesh" then
+			v:Destroy()
+		end
+	end
+
+par.Torso["Right Hip"].Part1 = nil
+par.Torso["Left Hip"].Part1 = nil
+par.Torso["Right Shoulder"].Part1 = nil
+par.Torso["Left Shoulder"].Part1 = nil
+
+                        for i,v in pairs(par:GetChildren()) do
+            if v.ClassName == "Part" then
+	v.BrickColor = BrickColor.new("Institutional white")
+	v.Material = "Neon"
+    if v.Name == "limb" then
+    v:Destroy()
+end
+end
+end
+
+                        for i,v in pairs(par.Head:GetChildren()) do
+            if v.ClassName == "Decal" then
+    v:Destroy()
+end
+end
+
+                        for i,v in pairs(par.Head:GetChildren()) do
+            if v.ClassName == "Part" then
+    v.Anchored = false
+end
+end
+
+                        for i,v in pairs(par:GetChildren()) do
+            if v.ClassName == "Hat" or v.ClassName == "Accessory" then
+	v.Handle.BrickColor = BrickColor.new("Institutional white")
+	v.Handle.Material = "Neon"
+    for i,v in pairs(v.Handle:GetChildren()) do
+	if v.ClassName == "SpecialMesh" then
+		v.TextureId = ""
+	end
+end
+end
+end
+
+humn.Name = "killed"
+
+local bp = Instance.new("BodyPosition",par["Right Arm"])
+bp.Position = par["Right Arm"].Position
+bp.Position = bp.Position + Vector3.new(0,8,0)
+
+local bp = Instance.new("BodyPosition",par["Left Leg"])
+bp.Position = par["Left Leg"].Position
+bp.Position = bp.Position + Vector3.new(0,4,0)
+
+local bp = Instance.new("BodyPosition",par.Torso)
+bp.Position = par.Torso.Position
+bp.Position = bp.Position + Vector3.new(0,2,0)
+
+local bp = Instance.new("BodyPosition",par["Left Arm"])
+bp.Position = par["Left Arm"].Position
+bp.Position = bp.Position + Vector3.new(0,2,0)
+
+local bp = Instance.new("BodyPosition",par["Right Leg"])
+bp.Position = par["Right Leg"].Position
+bp.Position = bp.Position + Vector3.new(0,2,0)
+
+local rac = Instance.new("Part",par)
+rac.Size = Vector3.new(1,1,1)
+rac.Position = par["Right Arm"].Position
+rac.Name = "limb"
+rac.Transparency = 1
+local w = Instance.new("Weld",rac)
+w.Part0 = par["Right Arm"]
+w.Part1 = rac
+w.C0 = CFrame.new(0,-0.5,0)
+ 
+local lac = Instance.new("Part",par)
+lac.Size = Vector3.new(1,1,1)
+lac.Position = par["Left Arm"].Position
+lac.Name = "limb"
+lac.Transparency = 1
+local w = Instance.new("Weld",lac)
+w.Part0 = par["Left Arm"]
+w.Part1 = lac
+w.C0 = CFrame.new(0,-0.5,0)
+ 
+local rlc = Instance.new("Part",par)
+rlc.Size = Vector3.new(1,1,1)
+rlc.Position = par["Right Leg"].Position
+rlc.Name = "limb"
+rlc.Transparency = 1
+local w = Instance.new("Weld",rlc)
+w.Part0 = par["Right Leg"]
+w.Part1 = rlc
+w.C0 = CFrame.new(0,-0.5,0)
+ 
+local llc = Instance.new("Part",par)
+llc.Size = Vector3.new(1,1,1)
+llc.Position = par["Right Leg"].Position
+llc.Name = "limb"
+llc.Transparency = 1
+local w = Instance.new("Weld",llc)
+w.Part0 = par["Left Leg"]
+w.Part1 = llc
+w.C0 = CFrame.new(0,-0.5,0)
+ 
+            local Joint = Instance.new("Glue")
+            Joint.Name = "RightShoulder"
+            Joint.Part0 = par.Torso
+            Joint.Part1 = par["Right Arm"]
+            Joint.C0 = CFrame.new(1.5, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+            Joint.C1 = CFrame.new(-0, 0.5, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+            Joint.Parent = par.Torso
+ 
+            local Joint = Instance.new("Glue")
+            Joint.Name = "LeftShoulder"
+            Joint.Part0 = par.Torso
+            Joint.Part1 = par["Left Arm"]
+            Joint.C0 = CFrame.new(-1.5, 0.5, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
+            Joint.C1 = CFrame.new(0, 0.5, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
+            Joint.Parent = par.Torso
+           
+            local Joint = Instance.new("Glue")
+            Joint.Name = "RightHip"
+            Joint.Part0 = par.Torso
+            Joint.Part1 = par["Right Leg"]
+            Joint.C0 = CFrame.new(0.5, -1, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+            Joint.C1 = CFrame.new(0, 1, 0, 0, 0, 1, 0, 1, 0, -1, -0, -0)
+            Joint.Parent = par.Torso
+ 
+            local Joint = Instance.new("Glue")
+            Joint.Name = "LeftHip"
+            Joint.Part0 = par.Torso
+            Joint.Part1 = par["Left Leg"]
+            Joint.C0 = CFrame.new(-0.5, -1, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
+            Joint.C1 = CFrame.new(-0, 1, 0, -0, -0, -1, 0, 1, 0, 1, 0, 0)
+            Joint.Parent = par.Torso
+ 
+humn.PlatformStand = true
+wait(4.5)
+                        for i,v in pairs(par:GetChildren()) do
+            if v.ClassName == "Part" then
+	local w1 = Instance.new("WedgePart",workspace)
+	w1.Size = Vector3.new(0.5,0.5,0.5)
+	w1.Position = v.Position
+	w1.Material = "Neon"
+	local w2 = Instance.new("WedgePart",workspace)
+	w2.Size = Vector3.new(0.5,0.5,0.5)
+	w2.Position = v.Position
+	w2.Material = "Neon"
+    v:Destroy()
+end
+end
+		end
+		bulc:Destroy()
+	end
+	end
+	end
+bulc.p2.Touched:connect(onTouched)
+	end
+	end
+end
+Mouse.Button1Down:connect(clickObj)
