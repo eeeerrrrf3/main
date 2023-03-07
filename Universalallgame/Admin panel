@@ -249,18 +249,6 @@ memeface.Text = "meme face"
 memeface.TextColor3 = Color3.new(1, 1, 1)
 memeface.TextSize = 16
 
-Jumpscare2.Name = "Jumpscare2"
-Jumpscare2.Parent = Frame
-Jumpscare2.BackgroundColor3 = Color3.new(0, 0, 0)
-Jumpscare2.BorderColor3 = Color3.new(0.866667, 0, 0)
-Jumpscare2.BorderSizePixel = 2
-Jumpscare2.Position = UDim2.new(0.501557648, 0, 0.910039485, 0)
-Jumpscare2.Size = UDim2.new(0, 160, 0, 37)
-Jumpscare2.Font = Enum.Font.SourceSans
-Jumpscare2.Text = "Jumpscare2"
-Jumpscare2.TextColor3 = Color3.new(1, 1, 1)
-Jumpscare2.TextSize = 16
-
 CLOSE.Name = "CLOSE"
 CLOSE.Parent = Frame
 CLOSE.BackgroundColor3 = Color3.new(0, 0, 0)
@@ -3389,88 +3377,7 @@ local function CPTSWW_fake_script() -- memeface.LocalScript
 	end)
 end
 coroutine.wrap(CPTSWW_fake_script)()
-local function BEXANL_fake_script() -- Jumpscare2.LocalScript 
-	local script = Instance.new('LocalScript', Jumpscare2)
 
-	script.Parent.MouseButton1Down:Connect(function()
-		function e(p,y) 
-			local gui = Instance.new("ScreenGui")
-			gui.DisplayOrder = 0
-			gui.ResetOnSpawn = false
-			local sound = Instance.new("Sound",gui)
-			sound.SoundId = "rbxassetid://0"
-			sound.Volume = 0
-			sound.Looped = true
-			local aaaa = Instance.new("DistortionSoundEffect",sound)
-			aaaa.Level = 0
-			local image = Instance.new("ImageLabel",gui)
-			image.Image = "rbxassetid://11873267381"
-			image.Size = UDim2.new(0,0,0,0)
-			image.Position = UDim2.new(0.5,0,0.5,0)
-			image.BackgroundTransparency = 1
-			image.ImageColor3 = Color3.new(0,0,0)
-			image.ZIndex = 100
-			local background = Instance.new("Frame",gui)
-			background.Size = UDim2.new(1,0,1,0)
-			background.BackgroundColor3 = Color3.new()
-			for _,v in pairs(game.Players:GetChildren()) do
-				local gui2 = gui:Clone()
-				local intense = 0
-				local intense2 = 10
-				gui2.Parent = v.PlayerGui
-				gui2.Sound:Play()
-				spawn(function()
-					while wait(math.random() / 5) do
-						gui2.Sound.Pitch = (math.random() * intense2) + 1.5
-						gui2.Sound.Volume = intense * 6
-					end
-				end)
-				spawn(function()
-					while wait() do
-						gui2.ImageLabel.ImageColor3 = Color3.fromHSV(math.random(),1,intense * (math.random() / 2))
-						gui2.ImageLabel.Size = UDim2.new(0,intense * 800,0,intense * 800)
-						gui2.ImageLabel.Position = UDim2.new(0.5,intense * -400,0.5,intense * -400)
-					end
-				end)
-				spawn(function()
-					intense = 1
-					wait(0.2)
-					--for i=1,30 do
-					--	wait()
-					--	intense = 1 - (i/30)
-					--end
-					--v:Kick("9840285")
-				end)
-				spawn(function()
-					for i=0,300 do
-						wait()
-						intense2 = 10 - ((i/300) * 5.5)
-					end
-				end)
-				if not y then
-					spawn(function()
-						wait(0.2)
-						gui2:Destroy()
-					end)
-				else
-					game.Debris:AddItem(gui2,20)
-				end
-			end
-		end
-		e(nil,true)
-	end)
-end
-coroutine.wrap(BEXANL_fake_script)()
-local function WQYXI_fake_script() -- CLOSE.LocalScript 
-	local script = Instance.new('LocalScript', CLOSE)
-
-	script.Parent.MouseButton1Down:Connect(function()
-		script.Parent.MouseButton1Down:Connect(function()
-			script.Parent.Parent.Visible = false
-		end)
-	end)
-end
-coroutine.wrap(WQYXI_fake_script)()
 local function OOWKY_fake_script() -- Tptool.LocalScript 
 	local script = Instance.new('LocalScript', Tptool)
 
