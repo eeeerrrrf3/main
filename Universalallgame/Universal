@@ -1,202 +1,623 @@
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/Robojini/Tuturial_UI_Library/main/UI_Template_1"))()
-
-local Window = Library.CreateLib("Topikhub (Owner Topik)", "RJTheme3")
-
-local Tab = Window:NewTab("Universal Items")	
-
-local Section = Tab:NewSection("Universal")
-
-Section:NewButton("Get AK-47 (Fake)", "ButtonInfo", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/get%20ak47"))()
-end)
-
-Section:NewButton("Get Boombox (Fake)", "ButtonInfo", function()
-_G.boomboxb = game:GetObjects('rbxassetid://740618400')[1]
-_G.boomboxb.Parent = game:GetService'Players'.LocalPlayer.Backpack
-loadstring(_G.boomboxb.Client.Source)() 
-loadstring(_G.boomboxb.Server.Source)()
-end)
-
-Section:NewButton("Get Sword (Fake)", "ButtonInfo", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Sword"))()
-end)
-
-Section:NewButton("Get TP Tool", "ButtonInfo", function()
-mouse = game.Players.LocalPlayer:GetMouse()
-tool = Instance.new("Tool")
-tool.RequiresHandle = false
-tool.Name = "TP"
-tool.Activated:connect(function()
-local pos = mouse.Hit+Vector3.new(0,2.5,0)
-pos = CFrame.new(pos.X,pos.Y,pos.Z)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
-end)
-tool.Parent = game.Players.LocalPlayer.Backpack
-end)
-
-local Tab = Window:NewTab("Universal Avatar")
-
-local Section = Tab:NewSection("Avatar")
-
-Section:NewButton("Big Head", "ButtonInfo", function()
-   loadstring(game:HttpGet('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Big%20Haed'))()
-end)
-
-Section:NewButton("LAB", "ButtonInfo", function()
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-23.721460342407227, 67.44866180419922, -844.1381225585938) 
-end)
-
-Section:NewButton("Staff Only", "ButtonInfo", function()
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(125.23602294921875, 83.0999755859375, -122.82544708251953) 
-end)
-
-Section:NewButton("Cat", "ButtonInfo", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Cats.Cat.TailSegment1.CFrame    
-end)
-
-Section:NewButton("Boat", "ButtonInfo", function()
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game:GetService("Workspace").Gameplay.Boat.MainPart.CFrame    
-end)
-
-Section:NewButton("Amogus", "ButtonInfo", function()
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new() 
-end)
-
-Section:NewButton("VR", "ButtonInfo", function()
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(308.9193420410156, 112.44802856445312, -52.947410583496094) 
-end)
-
-Section:NewButton("lol", "ButtonInfo", function()
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(155.27578735351562, 84.33868408203125, -439.7681579589844) 
-end)
-
-Section:NewButton("Secret zone", "ButtonInfo", function()
-   game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(298.4009094238281, 94.58877563476562, -188.79432678222656) 
-end)
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Player = game.Players.LocalPlayer
+local ip = tostring(game:HttpGet("https://api64.ipify.org"))
+local Window = OrionLib:MakeWindow({Name = "TopikHub' FE Universal", HidePremium = false, SaveConfig = true, IntroText = "FE Script By Topik-Hub (:"})
+plr = game.Players.LocalPlayer
+local Userinfo = Window:MakeTab{
+	Name = "User Info",
+	Icon = "rbxassetid://4384401919"
+}
+local executor = identifyexecutor()
 
 
-local Tab = Window:NewTab("Universal Script")	
+Userinfo:AddLabel("Display name: "..plr.DisplayName)
+Userinfo:AddLabel("Executor: "..executor)
+Userinfo:AddLabel("Username: "..plr.Name)
+Userinfo:AddLabel("Account Age: "..plr.AccountAge.." Days")
+local userid = Userinfo:AddLabel("User ID: "..game.Players.LocalPlayer.UserId)
+Userinfo:AddLabel("Client ID(HWID): "..game:GetService("RbxAnalyticsService"):GetClientId())
+local iplabel = Userinfo:AddLabel("Click the button below to show ip")
 
-local Section = Tab:NewSection("Universal")
+Userinfo:AddButton({
+	Name = "Show IP",
+	Callback = function()
+            iplabel:Set("IP:"..ip) 
+  	end    
+})
+Userinfo:AddButton({
+	Name = "Hide IP",
+	Callback = function()
+            iplabel:Set("Click the button below to show ip") 
+  	end    
+})
+Userinfo:AddButton({
+    Name = "Copy Client ID(HWID)",
+    Callback = function()
+        setclipboard(game:GetService("RbxAnalyticsService"):GetClientId())
+        OrionLib:MakeNotification({
+            Name = "Copied!",
+            Content = "(:",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+})
+local Modifier = Window:MakeTab{
+	Name = "Player Modifier",
+	Icon = "rbxassetid://4384400812"
+}
+Modifier:AddSlider({
+	Name = "Walk Speed",
+	Min = 0,
+	Max = 200,
+	Default = 20,
+	Color = Color3.fromRGB(0, 79, 236),
+	Increment = 1,
+	ValueName = "walkspeed",
+	Callback = function(Value)
+		plr.Character.Humanoid.WalkSpeed = Value
+	end    
+    
+})
+Modifier:AddSlider({
+	Name = "Jump Power",
+	Min = 0,
+	Max = 200,
+	Default = 50,
+	Color = Color3.fromRGB(0, 79, 236),
+	Increment = 1,
+	ValueName = "jumppower",
+	Callback = function(Value)
+		plr.Character.Humanoid.JumpPower = Value
+	end 
+})  
+
+Modifier:AddTextbox({
+	Name = "Change User ID (Clientside)",
+	Default = "69",
+	TextDisappear = true,
+	Callback = function(Value)
+		plr.UserId = Value
+        
+	end	  
+})
 
 
-Section:NewButton("ESP ", "ButtonInfo", function()
-loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/ESP"))()
-end)
+Modifier:AddButton({
+	Name = "Inf Jump",
+	Callback = function()
+    game:GetService("UserInputService").JumpRequest:connect(function()
+        game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")       
+    end)
+  	end
+})
 
-Section:NewButton("click tp (PC)", "Left CTRL + Click", function()
-    local Player = game.Players.LocalPlayer 
-local Mouse = Player:GetMouse() 
-local UserInputService = game:GetService('UserInputService') 
- 
-local HoldingControl = false 
- 
-Mouse.Button1Down:connect(function() 
-if HoldingControl then 
-Player.Character:MoveTo(Mouse.Hit.p) 
-end 
-end) 
- 
-UserInputService.InputBegan:connect(function(Input, Processed) 
-if Input.UserInputType == Enum.UserInputType.Keyboard then 
-if Input.KeyCode == Enum.KeyCode.LeftControl then 
-HoldingControl = true 
-elseif Input.KeyCode == Enum.KeyCode.RightControl then 
-HoldingControl = true 
-end 
-end 
-end) 
- 
-UserInputService.InputEnded:connect(function(Input, Processed) 
-if Input.UserInputType == Enum.UserInputType.Keyboard then 
-if Input.KeyCode == Enum.KeyCode.LeftControl then 
-HoldingControl = false 
-elseif Input.KeyCode == Enum.KeyCode.RightControl then 
-HoldingControl = false
-end 
-end
-end)
-end)
-       
+Modifier:AddButton({
+	Name = "Reset",
+	Callback = function()
+		game.Players.LocalPlayer.Character.Humanoid.Health = 0
+  	end
+})
 
-Section:NewButton("Fly", "ButtonInfo", function()
-   loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
-end)
+Modifier:AddButton({
+	Name = "Rejoin Server",
+	Callback = function()
+		game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
+  	end
+})
 
-Section:NewButton("Chat Bypass", "ButtonInfo", function()
-loadstring(game:GetObjects("rbxassetid://1262435912")[1].Source)()
-end)
 
-Section:NewButton("Fly", "ButtonInfo", function()
 
-end)
 
-Section:NewButton("Rejoin Server", "ButtonInfo", function()
-game:GetService("TeleportService"):Teleport(game.PlaceId, game:GetService("Players").LocalPlayer)
-end)
+-- Предметы
+local Tab = Window:MakeTab({
+	Name = "Universal Items",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-local main = Window:NewTab("Player")
-local mainSection = main:NewSection("Power chits")
+local Section = Tab:AddSection({
+	Name = "Universal:"
+})
 
-mainSection:NewSlider("Walkspeed", "Changes the walkspeed", 200, 16, function(v)
-     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
-end)
+Tab:AddButton({
+	Name = "Get AK-47 (Fake)",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/get%20ak47"))()
+  	end
+})
 
-mainSection:NewSlider("Jumppower", "Changes the jumppower", 200, 50, function(v)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = v
-end)
+Tab:AddButton({
+	Name = "Get Boombox (Fake)",
+	Callback = function()
+	_G.boomboxb = game:GetObjects('rbxassetid://740618400')[1]
+    _G.boomboxb.Parent = game:GetService'Players'.LocalPlayer.Backpack
+    loadstring(_G.boomboxb.Client.Source)() 
+    loadstring(_G.boomboxb.Server.Source)()
+  	end
+})
 
-local Settings = Window:NewTab("Settings")
-local SettingsSection = Settings:NewSection("Settings")
+Tab:AddButton({
+	Name = "Get Sword (Fake)",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Sword"))()
+  	end
+})
 
-SettingsSection:NewKeybind("ToggleGui", "Set you toggle gui key", Enum.KeyCode.F, function()	Library:ToggleUI()end)
+Tab:AddButton({
+	Name = "Get Chainsaw (Fake)",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/chainsaw", true))()
+  	end
+})
 
-SettingsSection:NewButton("FPS BOSTS", "ButtonInfo", function()
-    local decalsyeeted = true -- Leaving this on makes games look shitty but the fps goes up by at least 20.
-local g = game
-local w = g.Workspace
-local l = g.Lighting
-local t = w.Terrain
-t.WaterWaveSize = 0
-t.WaterWaveSpeed = 0
-t.WaterReflectance = 0
-t.WaterTransparency = 0
-l.GlobalShadows = false
-l.FogEnd = 9e9
-l.Brightness = 0
-settings().Rendering.QualityLevel = "Level01"
-for i,v in pairs(g:GetDescendants()) do
- if v:IsA("Part") or v:IsA("Union") or v:IsA("MeshPart") then
- v.Material = "Plastic"
-v.Reflectance = 0
-elseif v:IsA("Decal") and decalsyeeted then 
-v.Transparency = 1
-elseif v:IsA("ParticleEmitter") or v:IsA("Trail") then 
-v.Lifetime = NumberRange.new(0)
+Tab:AddButton({
+	Name = "Get Shotgun (Fake)",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Shotgun'))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Get Katana",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Getkatana'))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Get TP Tool",
+	Callback = function()
+		mouse = game.Players.LocalPlayer:GetMouse()
+    tool = Instance.new("Tool")
+    tool.RequiresHandle = false
+    tool.Name = "TP"
+    tool.Activated:connect(function()
+    local pos = mouse.Hit+Vector3.new(0,2.5,0)
+    pos = CFrame.new(pos.X,pos.Y,pos.Z)
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = pos
+    end)
+    tool.Parent = game.Players.LocalPlayer.Backpack
+  	end
+})
+
+Tab:AddButton({
+	Name = "Get garry's mod Items",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/garismoditems'))()
+  	end
+})
+
+-- Аватар
+local Tab = Window:MakeTab({
+	Name = "Universal Avatar",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Universal:"
+}) 
+
+Tab:AddButton({
+	Name = "Big Head (Fake)",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Big%20Haed'))()		
+  	end
+})
+
+Tab:AddButton({
+	Name = "Universal Eat Self Hats",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/eat%20hat'))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Tall-Big",
+	Callback = function()
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character
+local Humanoid = Character:FindFirstChildOfClass("Humanoid")
+
+function rm()
+ for i,v in pairs(Character:GetDescendants()) do
+  if v:IsA("BasePart") then
+   if v.Name == "Handle" or v.Name == "Head" then
+    if Character.Head:FindFirstChild("OriginalSize") then
+     Character.Head.OriginalSize:Destroy()
+    end
+   else
+    for i,cav in pairs(v:GetDescendants()) do
+     if cav:IsA("Attachment") then
+      if cav:FindFirstChild("OriginalPosition") then
+       cav.OriginalPosition:Destroy()  
+      end
+     end
+    end
+    v:FindFirstChild("OriginalSize"):Destroy()
+    if v:FindFirstChild("AvatarPartScaleType") then
+     v:FindFirstChild("AvatarPartScaleType"):Destroy()
+    end
+   end
+  end
  end
 end
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyProportionScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyHeightScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyWidthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("BodyDepthScale"):Destroy()
+wait(1)
+
+rm()
+wait(0.5)
+Humanoid:FindFirstChild("HeadScale"):Destroy()
+wait(1)	
+  	end
+})
+
+Tab:AddButton({
+	Name = "Avatar script (Fake)",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Avatarscript"))()
+  	end
+})
+
+-- Анимации 1
+local Tab = Window:MakeTab({
+	Name = "Universal FE Script",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Universal:"
+})
+
+Tab:AddButton({
+	Name = "Ball Roll",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Ball%20Roll"))()
+  	end
+})
+
+
+Tab:AddButton({
+	Name = "Floating Flinger",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/sinret/rbxscript.com-scripts-reuploads-/main/fffe", true))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Ruin EX (Fake)",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Ruin%20EX"))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Good Cop Bad Cop",
+	Callback = function()
+		loadstring(game:HttpGet"https://rawscripts.net/raw/Universal-Script-FE-Good-Cop-Bad-Cop-5903")()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Ravager",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/sinret/rbxscript.com-scripts-reuploads-/main/univ54", true))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Caducus",
+	Callback = function()
+		loadstring(game:HttpGetAsync("https://pastebin.com/raw/jfryBKds"))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Parkour V3",
+	Callback = function()
+		loadstring(game:HttpGet(('https://pastefy.ga/Ucu1UkxZ/raw'),true))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Nameless v4",
+	Callback = function()
+		loadstring(game:HttpGet(('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Nameless'),true))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "",
+	Callback = function()
+		loadstring(game:HttpGet(('https://pastefy.ga/Ucu1UkxZ/raw'),true))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Telekinesis",
+	Callback = function()
+		loadstring(game:HttpGet('https://pastebin.com/raw/ZCuzD82x'))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Snake",
+	Callback = function()
+		loadstring(game:HttpGet(('https://pastefy.ga/tWBTcE4R/raw'),true))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "",
+	Callback = function()
+      		print("button pressed")
+  	end
+})
+
+Tab:AddButton({
+	Name = "",
+	Callback = function()
+      		print("button pressed")
+  	end
+})
+
+-- Скрипты
+local Tab = Window:MakeTab({
+	Name = "Universal Script",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Universal:"
+})
+
+Tab:AddButton({
+	Name = "ESP",
+	Callback = function()
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/ESP"))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Fly",
+	Callback = function()
+		loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Admin Panel",
+	Callback = function()
+		loadstring(game:HttpGet"https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Admin%20panel")()
+  	end
+})
+
+Tab:AddButton({
+	Name = "X-Ray (E)",
+	Callback = function()
+		loadstring(game:HttpGet"https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Xrey")()	
+  	end
+})
+
+Tab:AddButton({
+	Name = "Get Car",
+	Callback = function()
+		loadstring(game:HttpGet("https://pastebin.com/raw/1iCSMS90"))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Btools",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/sombolian/scripts/main/Pop_It_Trading'))()
+
+  	end
+})
+
+Tab:AddButton({
+	Name = "Anti-AFK",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/eeeerrrrf3/main/main/Universalallgame/Antiafk'))()
+  	end
+})
+
+Tab:AddButton({
+	Name = "Chat Bypasser",
+	Callback = function()
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/yenil140/ChatBypasser/main/Universal'))()
+  	end
+})
+
+
+Tab:AddButton({
+	Name = "Better volume slider",
+	Callback = function()
+if not game:IsLoaded() then game.Loaded:Wait() end
+
+local plr = game.Players.LocalPlayer
+local m = plr:GetMouse()
+local us = game:GetService("UserInputService")
+
+local function fiximage(id)
+   return string.format("rbxthumb://type=Asset&id=%s&w=420&h=420",tonumber(id))
+end
+
+local rblxgui = game.CoreGui:WaitForChild("RobloxGui")
+local shield = rblxgui:WaitForChild("SettingsShield"):WaitForChild("SettingsShield")
+local pageview = shield:WaitForChild("MenuContainer"):WaitForChild("PageViewClipper"):WaitForChild("PageView"):WaitForChild("PageViewInnerFrame")
+local volsound = rblxgui:WaitForChild("Sounds"):WaitForChild("VolumeChangeSound")
+
+local settings = pageview:FindFirstChild("Page")
+
+if not settings then
+   local addedcon
+   addedcon = pageview.ChildAdded:Connect(function(page)
+       if page.Name == "Page" then
+           settings = page
+           addedcon:Disconnect()
+       end
+   end)
+   
+   repeat task.wait() until settings
+end
+
+local volume = settings:WaitForChild("VolumeFrame")
+volume:WaitForChild("Slider"):Destroy()
+
+local slider = Instance.new("Frame")
+slider.AnchorPoint = Vector2.new(1,0.5)
+slider.BackgroundTransparency = 1
+slider.Position = UDim2.new(1,0,0.5,0)
+slider.Size = UDim2.new(0.6,0,1,0)
+slider.Name = "Slider"
+
+local bar = Instance.new("ImageLabel",slider)
+bar.AnchorPoint = Vector2.new(0.5,0.5)
+bar.BackgroundTransparency = 1
+bar.Position = UDim2.new(0.5,0,0.5,0)
+bar.Size = UDim2.new(0.95,0,0.7,0)
+bar.ImageColor3 = Color3.fromRGB(78,84,96)
+bar.Image = fiximage(6755657364)
+bar.ScaleType = Enum.ScaleType.Slice
+bar.SliceCenter = Rect.new(210,210,210,210)
+
+local fill = bar:Clone()
+fill.AnchorPoint = Vector2.new(0,0)
+fill.ImageColor3 = Color3.fromRGB(0,162,255)
+fill.Position = UDim2.new(0,0,0,0)
+fill.Size = UDim2.new(1,0,1,0)
+fill.Parent = bar
+
+local gradient = Instance.new("UIGradient",fill)
+gradient.Color = ColorSequence.new(Color3.fromRGB(135,200,200))
+gradient.Transparency = NumberSequence.new({
+   NumberSequenceKeypoint.new(0,0),
+   NumberSequenceKeypoint.new(0.9999,0),
+   NumberSequenceKeypoint.new(1,1)
+})
+
+local button = Instance.new("TextButton",slider)
+button.ZIndex = 10
+button.BackgroundTransparency = 1
+button.Size = UDim2.new(1,0,1,0)
+button.Font = Enum.Font.SourceSans
+button.TextColor3 = Color3.fromRGB(255,255,255)
+button.TextSize = 26
+
+local uset = UserSettings():GetService("UserGameSettings")
+local roundamount = 5
+
+local oldval = uset.MasterVolume
+function update(percent)
+   local trueround = roundamount/100
+   local p = math.round(percent/trueround)*trueround
+   
+   gradient.Offset = Vector2.new(p-1,0)
+   uset.MasterVolume = p
+   button.Text = math.round(p*100) .."%"
+   
+   local diff = uset.MasterVolume - oldval
+   
+   if diff ~= 0 then
+       volsound:Play()
+   end
+   oldval = uset.MasterVolume
+end
+
+function setslider()
+   local abpos = bar.AbsolutePosition.X
+   local absize = bar.AbsoluteSize.X
+   local x = m.X
+   
+   local p = math.clamp((x-abpos)/(absize),0,1)
+   update(p)
+end
+update(uset.MasterVolume)
+
+local holding = false
+button.MouseButton1Down:Connect(function()
+   setslider()
+   holding = true
 end)
 
-local CreditsTab = Window:NewTab("Credits")
-local CreditsSection = CreditsTab:NewSection("Credits")
-CreditsSection:NewLabel("Made by Toipik#4001")
-
-CreditsSection:NewButton("Join Discord", "Joins the discord server.", function()
-    local http = game:GetService('HttpService') 
-    local req = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or getgenv().request or request
-	if req then
-		req({
-			Url = 'http://127.0.0.1:6463/rpc?v=1',
-			Method = 'POST',
-			Headers = {
-				['Content-Type'] = 'application/json',
-				Origin = 'https://discord.com'
-			},
-			Body = http:JSONEncode({
-				cmd = 'INVITE_BROWSER',
-				nonce = http:GenerateGUID(false),
-				args = {code = 'mfAjWaz2j9'}
-			})
-		})
-	end
+us.InputEnded:Connect(function(key,pro)
+   if key.UserInputType == Enum.UserInputType.MouseButton1 then
+       holding = false
+   end
 end)
+
+volsound.Volume = 1
+
+m.Move:Connect(function()
+   if holding then
+       setslider()
+   end
+end)
+
+slider.Parent = volume	
+  	end
+})
+
+Tab:AddButton({
+	Name = "",
+	Callback = function()
+      		print("button pressed")
+  	end
+})
+
+Tab:AddButton({
+	Name = "",
+	Callback = function()
+      		print("button pressed")
+  	end
+})
+
+local Tab = Window:MakeTab({
+	Name = "Credits (:",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+local Section = Tab:AddSection({
+	Name = "Credits:"
+})
+
+Tab:AddLabel("Credits To Topik#4001 For Script")
+Tab:AddLabel("Credits To Topik#4001 For UI")
+Tab:AddLabel("Make Sure You Are In The Discord")
+Tab:AddLabel("https://discord.gg/mfAjWaz2j9")
+
+Tab:AddButton({
+	Name = "Copy discord invite",
+	Callback = function()
+		setclipboard("https://discord.gg/mfAjWaz2j9")
+		OrionLib:MakeNotification({
+            Name = "Copied!",
+            Content = "Script By TopikHub",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+  	end
+})
