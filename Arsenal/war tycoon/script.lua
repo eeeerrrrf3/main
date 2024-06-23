@@ -1,9 +1,8 @@
-
 local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
 local PhantomForcesWindow = Library:NewWindow("TopikHub|Wartycoon")
 
-local KillingCheats = PhantomForcesWindow:NewSection("scriptsf")
+local KillingCheats = PhantomForcesWindow:NewSection("scripts")
 
 
 
@@ -297,19 +296,14 @@ end)
 
 
 
-
-
-
-KillingCheats:CreateToggle("antiafk", {Title = "Anti-Afk", Default = false })
-antiafk:OnChanged(function(value)
-    getgenv().antiafk = value
-    while getgenv().antiafk do task.wait()
-        game:GetService("VirtualUser"):ClickButton1(Vector2.new(710,534,0))
-    end
+KillingCheats:CreateToggle("antiafk", function(value)
+  getgenv().antiafk = value
+  while getgenv().antiafk do task.wait()
+      game:GetService("VirtualUser"):ClickButton1(Vector2.new(710,534,0))
+  end
 end)
 
-KillingCheats:CreateToggle("AutoPlay", {Title = "[Function Based]: Auto-Play", Default = false })
-AutoPlay:OnChanged(function(value)
+KillingCheats:CreateToggle("AutoPlay", function(value)
     getgenv().AutoPlay = value
     while getgenv().AutoPlay do task.wait()
         if PlayerTycoon.CurrencyToCollect.Value == 0 then
