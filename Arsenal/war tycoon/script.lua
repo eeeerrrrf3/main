@@ -300,7 +300,7 @@ end)
 
 
 
-local antiafk = KillingCheats:CreateToggle("antiafk", {Title = "Anti-Afk", Default = false })
+KillingCheats:CreateToggle("antiafk", {Title = "Anti-Afk", Default = false })
 antiafk:OnChanged(function(value)
     getgenv().antiafk = value
     while getgenv().antiafk do task.wait()
@@ -308,7 +308,7 @@ antiafk:OnChanged(function(value)
     end
 end)
 
-local AutoPlay = KillingCheats:CreateToggle("AutoPlay", {Title = "[Function Based]: Auto-Play", Default = false })
+KillingCheats:CreateToggle("AutoPlay", {Title = "[Function Based]: Auto-Play", Default = false })
 AutoPlay:OnChanged(function(value)
     getgenv().AutoPlay = value
     while getgenv().AutoPlay do task.wait()
