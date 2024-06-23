@@ -3,7 +3,7 @@ local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/blood
 
 local PhantomForcesWindow = Library:NewWindow("TopikHub|Wartycoon")
 
-local KillingCheats = PhantomForcesWindow:NewSection("scripts")
+local KillingCheats = PhantomForcesWindow:NewSection("scriptsf")
 
 
 
