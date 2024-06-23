@@ -5,6 +5,108 @@ local PhantomForcesWindow = Library:NewWindow("TopikHub|Wartycoon")
 
 local KillingCheats = PhantomForcesWindow:NewSection("scripts")
 
+
+
+
+
+-- Find the player's tycoon
+for _, tycoon in pairs(game:GetService("Workspace").Tycoon.Tycoons:GetChildren()) do
+  if tycoon:FindFirstChild("Owner") and tostring(tycoon.Owner.Value) == PlayerName then
+      TycoonName = tycoon.Name
+      warn('// Found player tycoon! '.. TycoonName)
+      break
+  end
+end
+
+-- Check if the player has a tycoon
+local PlayerTycoon = game:GetService("Workspace").Tycoon.Tycoons[TycoonName]
+if not PlayerTycoon then
+  warn("// Failed to find player tycoon. Make sure you're loaded in and have a tycoon!")
+  awakenNotification:CreateNotification(
+      'Error:',
+      "Failed to find player tycoon. Make sure you're loaded in and have a tycoon!",
+      14404156927,
+      4
+  )
+  return
+end
+
+-- Loading Functions....
+getgenv().ButtonPressAmmount = 1
+getgenv().WaitBeforeCollect = 0
+getgenv().WaitAfterCollect = 0.6
+getgenv().IgnoreRebirthButtons = false
+
+local TycoonName
+local cango
+
+
+local partsToIgnore = {
+  "Javelin Giver",
+  "AWP Giver",
+  "Auto Collect Gamepass",
+  "2x Cash Gamepass",
+  "2x Health Armor",
+  "Speedy Oil Extractor",
+  "FAMAS Group Gun",
+  "GTE Shirt",
+  "10k Shield Health Gamepass",
+  "Speedy Humvee",
+  "AbramsX Tank",
+  "Barrett M82 Giver",
+  "Boxer CRV Giver",
+  "Camo Customizer Giver",
+  "Desert Eagle Giver",
+  "Tactical JLTV Giver",
+  "WW2 US Army Pack Giver",
+  "Mi24 Helicopter",
+  "Explosive Sniper Giver",
+  "FAL Heavy Giver",
+  "Boxer CRV",
+  'JLTV',
+  "M1117 Guardian",
+  "M142 HIMARS",
+  "Pantsir S1",
+  "A-10 Air Strike Giver",
+  "Gunship",
+  "Lazar 3 APC",
+  "Barrett M82",
+  "KA-52 Alligator",
+  "Mi24 Hind",
+  "UH-60 Black Hawk",
+  "KA-52 Alligator",
+  "Eurocopter Tiger",
+  "AH-64 Apache",
+  "Boxer CRV",
+  "JLTV",
+  "SURC",
+  "Vietnam River Boat",
+  "KSG 12 Giver",
+  "PP19 Bizon Giver",
+  'Fairmile',
+  'USS Douglas',
+  'PG-02',
+  "LAV-AD",
+  "Super Stallion",
+}
+local RebirthButtons = {
+  "Boats [3 Rebirths]",
+  "Drone [5 Rebirths]",
+  "Helicopters [3 Rebirths]",
+  "Planes [7 Rebirths]",
+  "Tank Unlock Rebirth 6",
+  "Vietnam Unlock Rebirth 4",
+  "WW2 [4 Rebirths]",
+  "Missile Silo Start",
+  "Easter Egg [10 Rebirths]",
+}
+
+
+
+
+
+
+
 KillingCheats:CreateButton("Fly😊", function()
     loadstring("\108\111\97\100\115\116\114\105\110\103\40\103\97\109\101\58\72\116\116\112\71\101\116\40\40\39\104\116\116\112\115\58\47\47\103\105\115\116\46\103\105\116\104\117\98\117\115\101\114\99\111\110\116\101\110\116\46\99\111\109\47\109\101\111\122\111\110\101\89\84\47\98\102\48\51\55\100\102\102\57\102\48\97\55\48\48\49\55\51\48\52\100\100\100\54\55\102\100\99\100\51\55\48\47\114\97\119\47\101\49\52\101\55\52\102\52\50\53\98\48\54\48\100\102\53\50\51\51\52\51\99\102\51\48\98\55\56\55\48\55\52\101\98\51\99\53\100\50\47\97\114\99\101\117\115\37\50\53\50\48\120\37\50\53\50\48\102\108\121\37\50\53\50\48\50\37\50\53\50\48\111\98\102\108\117\99\97\116\111\114\39\41\44\116\114\117\101\41\41\40\41\10\10")()
 end)
@@ -198,37 +300,91 @@ end)
 
 
 
+local antiafk = KillingCheats:CreateToggle("antiafk", {Title = "Anti-Afk", Default = false })
+antiafk:OnChanged(function(value)
+    getgenv().antiafk = value
+    while getgenv().antiafk do task.wait()
+        game:GetService("VirtualUser"):ClickButton1(Vector2.new(710,534,0))
+    end
+end)
+
+local AutoPlay = KillingCheats:CreateToggle("AutoPlay", {Title = "[Function Based]: Auto-Play", Default = false })
+AutoPlay:OnChanged(function(value)
+    getgenv().AutoPlay = value
+    while getgenv().AutoPlay do task.wait()
+        if PlayerTycoon.CurrencyToCollect.Value == 0 then
+            cango = false
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(PlayerTycoon.PurchasedObjects:FindFirstChild("Oil 1").PromptDisplay.CFrame.Position)
+            task.wait(0.5)
+			vim:SendKeyEvent(true, 'E', false, game)
+			task.wait(0.5)
+			vim:SendKeyEvent(false, 'E', false, game)
+            task.wait(3)
+        elseif PlayerTycoon.CurrencyToCollect.Value >= 0 then
+          warn("[Debug]: User have more then 0 cash")
+          cango = true
+        end
+        if cango == true then
+         task.wait(tonumber(getgenv().WaitBeforeCollect))
+         local CashCollectorPart = PlayerTycoon.Essentials.CashCollector.CFrame.Position
+         local CashCollectorPart2 = PlayerTycoon.Essentials.CashCollector2.CFrame.Position
+         CashCollectorPart = CashCollectorPart + Vector3.new(0, 5, 0)
+         if PlayerTycoon.PurchasedObjects:FindFirstChild("Oil Drill 1") then
+             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(CashCollectorPart)
+             task.wait(0.5)
+             CashCollectorPart2 = CashCollectorPart2 + Vector3.new(0, 5, 0)
+             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(CashCollectorPart2)
+         else
+             game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(CashCollectorPart)
+         end
+         for i= 1,tonumber(getgenv().ButtonPressAmmount) do task.wait(0.5)
+            local partsToTeleportTo = {}
+            for _, model in pairs(PlayerTycoon.UnpurchasedButtons:GetChildren()) do
+                if model:IsA("Model") then
+                    for _, part in pairs(model:GetChildren()) do
+                        if part.Name == "Part" then
+                            local ignore = false
+                            for _, name in pairs(partsToIgnore) do
+                                if part.Parent.Name == name then
+                                    ignore = true
+                                elseif getgenv().IgnoreRebirthButtons then
+                                    for _, name in pairs(RebirthButtons) do
+                                        if part.Parent.Name == name then
+                                            ignore = true
+                                            break
+                                        end
+                                    end
+                                end
+                            end
+                            if not ignore then
+                                table.insert(partsToTeleportTo, part)
+                            end
+                        end
+                    end
+                end
+            end
+            if #partsToTeleportTo > 0 then
+                local randomPart = partsToTeleportTo[math.random(1, #partsToTeleportTo)]
+                local newPosition = randomPart.CFrame.Position
+                newPosition = newPosition + Vector3.new(0, 5, 0)
+                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(newPosition)
+            end
+         end
+         task.wait(tonumber(getgenv().WaitAfterCollect))
+        end
+    end
+end)
 
 
 
-KillingCheats:CreateTextbox("TextBox", function(text)
+KillingCheats:CreateToggle("Auto Collect", function(value)
 
 end)
 
 KillingCheats:CreateToggle("Auto Collect", function(value)
-        getgenv().autoCollect = value
-        while getgenv().autoCollect do task.wait(1)
-            local CashCollectorPart = PlayerTycoon.Essentials.CashCollector.CFrame.Position
-            local CashCollectorPart2 = PlayerTycoon.Essentials.CashCollector2.CFrame.Position
-            CashCollectorPart = CashCollectorPart + Vector3.new(0, 5, 0)
-            if PlayerTycoon.PurchasedObjects:FindFirstChild("Oil Drill 1") then
-                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(CashCollectorPart)
-                task.wait(0.5)
-                CashCollectorPart2 = CashCollectorPart2 + Vector3.new(0, 5, 0)
-                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(CashCollectorPart2)
-            else
-                game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(CashCollectorPart)
-            end
-        end 
+
 end)
 
-KillingCheats:CreateDropdown("DropDown", {"Hello", "World", "Hello World"}, 2, function(text)
-print(text)
-end)
+KillingCheats:CreateToggle("Auto Collect", function(value)
 
-KillingCheats:CreateSlider("Slider", 0, 100, 15, false, function(value)
-print(value)
- end)
-KillingCheats:CreateColorPicker("Picker", Color3.new(255, 255, 255), function(value)
-print(value)
 end)
